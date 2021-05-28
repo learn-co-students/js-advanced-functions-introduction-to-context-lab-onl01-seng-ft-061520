@@ -46,18 +46,20 @@ const wagesEarnedOnDate = (emp, date) => {
 const allWagesFor = (emp) => {
   const datesWorked = emp.timeInEvents.map((e) => e.date);
   const totalWages = datesWorked.reduce((total, date) => {
-	return total + wagesEarnedOnDate(emp, date);
-  }, 0)
+    return total + wagesEarnedOnDate(emp, date);
+  }, 0);
   return totalWages;
 };
 
 const findEmployeeByFirstName = (employees, firstName) => {
-	const employeeRecord = employees.find((emp) => emp.firstName === firstName);
-	return employeeRecord;
-}
+  const employeeRecord = employees.find((emp) => emp.firstName === firstName);
+  return employeeRecord;
+};
 
 const calculatePayroll = (employees) => {
-	const totalPayroll = employees.reduce((total, emp) => total + allWagesFor(emp), 0);
-	return totalPayroll;
-
-}
+  const totalPayroll = employees.reduce(
+    (total, emp) => total + allWagesFor(emp),
+    0
+  );
+  return totalPayroll;
+};
